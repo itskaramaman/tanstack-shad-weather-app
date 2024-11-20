@@ -82,6 +82,7 @@ const CurrentWeather = ({ data, locationName }: CurrentWeatherProps) => {
               <img
                 src={`https://openweathermap.org/img/wn/${currentWeather.icon}@4x.png`}
                 alt="weather-img"
+                className="h-full w-full object-contain"
               />
               <div className="absolute bottom-0 text-center">
                 <p className="text-sm font-medium capitalize">
