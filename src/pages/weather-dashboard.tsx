@@ -11,6 +11,7 @@ import {
 import AppAlert from "../components/app-alert";
 import HourlyTemperature from "../components/hourly-temperature";
 import WeatherDetails from "../components/weather-details";
+import WeatherForecast from "../components/weather-forecast";
 
 const WeatherDashboard = () => {
   const {
@@ -107,9 +108,9 @@ const WeatherDashboard = () => {
           />
           <HourlyTemperature data={forcastQuery.data} />
         </div>
-        <div>
+        <div className="grid gap-6 md:grid-cols-2 grid-cols-2">
           <WeatherDetails data={weatherQuery.data} />
-          {/* forecast */}
+          <WeatherForecast data={forcastQuery.data} />
         </div>
       </div>
     </div>
