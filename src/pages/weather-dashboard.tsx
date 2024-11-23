@@ -12,6 +12,7 @@ import AppAlert from "../components/app-alert";
 import HourlyTemperature from "../components/hourly-temperature";
 import WeatherDetails from "../components/weather-details";
 import WeatherForecast from "../components/weather-forecast";
+import FavouriteCities from "../components/favourite-cities";
 
 const WeatherDashboard = () => {
   const {
@@ -78,12 +79,9 @@ const WeatherDashboard = () => {
     return <WeatherSkeleton />;
   }
 
-  console.log(weatherQuery.isFetching);
-
-  //   if (!weather)
   return (
     <div className="space-y-4">
-      {/* Favourite cities */}
+      <FavouriteCities />
       <div className="flex items-center justify-between mt-2">
         <h1 className="text-xl font-bold tracking-tight">My Location</h1>
         <Button

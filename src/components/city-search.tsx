@@ -9,11 +9,12 @@ import {
 } from "./ui/command";
 import { useState } from "react";
 import { Button } from "./ui/button";
-import { Clock, Loader2, Search, XCircle } from "lucide-react";
+import { Clock, Search, Star, XCircle } from "lucide-react";
 import { useLocationSearch } from "../hooks/use-weather";
 import { useNavigate } from "react-router-dom";
 import { useSearchHistory } from "../hooks/use-search-history";
 import { format } from "date-fns";
+import { useFavourite } from "../hooks/use-favourite";
 
 const CitySearch = () => {
   const [open, setOpen] = useState(false);
@@ -22,6 +23,7 @@ const CitySearch = () => {
 
   const { data: locations, isLoading } = useLocationSearch(query);
   const { history, clearHistory, addToHistory } = useSearchHistory();
+  const { favourites: favorites } = useFavourite();
 
   const handleSelect = (cityData: string) => {
     const [lat, lon, name, country] = cityData.split("|");
@@ -60,9 +62,22 @@ const CitySearch = () => {
             <CommandInput placeholder="Search cities..." />
           )}
           <CommandEmpty>No cities found.</CommandEmpty>
-          {/* <CommandGroup heading="Favourites">
-            <CommandItem>Calendar</CommandItem>
-          </CommandGroup> */}
+          {favorites.length > 0 && (
+            <CommandGroup heading="Favourites">
+              {favorites.map((location) => (
+                <CommandItem
+                  key={`${location.lon} ${location.lat}`}
+                  value={`${location.lat}|${location.lon}|${location.name}|${location.country}`}
+                  onSelect={handleSelect}
+                >
+                  <Star className="mr-2 h-4 w-4 text-yellow-500" />
+                  <span>
+                    {location.name}, {location.country}
+                  </span>
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          )}
 
           {history.length > 0 && (
             <>
@@ -89,7 +104,7 @@ const CitySearch = () => {
                   >
                     <Clock className="mr-2 h-4 w-4 text-muted-foreground" />
                     <span>
-                      {location.name}, {location.state}, {location.country}
+                      {location.name}, {location.country}
                     </span>
                     <span>{format(location.searchedAt, "MMM d, h:mm a")}</span>
                   </CommandItem>
