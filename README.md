@@ -6,6 +6,16 @@ A sleek and modern weather application with stunning UI, featuring light and dar
 
 https://weather-app-karam.netlify.app/
 
+## Screenshot
+
+Here is a screenshot of the project:
+
+![Screenshot](assets/screenshot1.png)
+![Screenshot](assets/screenshot2.png)
+![Screenshot](assets/screenshot3.png)
+![Screenshot](assets/screenshot4.png)
+![Screenshot](assets/screenshot5.png)
+
 ## 🚀 Features
 
 - **🌞 Beautiful UI**: Toggle between light and dark modes for a tailored experience.
