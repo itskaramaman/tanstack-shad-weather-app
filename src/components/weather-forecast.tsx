@@ -1,4 +1,4 @@
-import { format, formatDate } from "date-fns";
+import { format } from "date-fns";
 import { ForecastData } from "../api/types";
 import { Card, CardTitle, CardContent, CardHeader } from "./ui/card";
 import { ArrowDown, ArrowUp, Droplets, Wind } from "lucide-react";

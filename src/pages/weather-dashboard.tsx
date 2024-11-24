@@ -32,7 +32,6 @@ const WeatherDashboard = () => {
       weatherQuery.refetch();
       forcastQuery.refetch();
       locationQuery.refetch();
-      // reload weather data
     }
   };
 
